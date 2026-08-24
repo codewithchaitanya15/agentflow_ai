@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================================
+   THEME DEFINITIONS VIA CSS VARIABLES
+   ======================================================== */
+
+:root,
+[data-theme="midnight"] {
+  --background: #090d16;
+  --foreground: #f8fafc;
+  --surface: #0f172a;
+  --surface-hover: #1e293b;
+  --border: #1e293b;
+  --border-subtle: #141c2e;
+  --brand-accent: #6366f1;
+}
+
+[data-theme="cyberpunk"] {
+  --background: #030712;
+  --foreground: #f0fdf4;
+  --surface: #0a0e1a;
+  --surface-hover: #111827;
+  --border: #1f293d;
+  --border-subtle: #0f172a;
+  --brand-accent: #10b981;
+}
+
+[data-theme="nebula"] {
+  --background: #0c071e;
+  --foreground: #faf5ff;
+  --surface: #150d30;
+  --surface-hover: #22144d;
+  --border: #291a5c;
+  --border-subtle: #190f38;
+  --brand-accent: #a855f7;
+}
+
+[data-theme="light"],
+.light-mode {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  --border: #e2e8f0;
+  --border-subtle: #cbd5e1;
+  --brand-accent: #4f46e5;
+}
+
+/* Base Body Application */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Light Mode Overrides for Slate Grays */
+.light-mode .text-white {
+  color: #0f172a !important;
+}
+
+.light-mode .text-slate-100 {
+  color: #0f172a !important;
+}
+
+.light-mode .text-slate-200 {
+  color: #1e293b !important;
+}
+
+.light-mode .text-slate-300 {
+  color: #334155 !important;
+}
+
+.light-mode .text-slate-400 {
+  color: #64748b !important;
+}
+
+.light-mode .bg-surface {
+  background-color: #ffffff !important;
+}
+
+.light-mode .bg-slate-900,
+.light-mode .bg-slate-950 {
+  background-color: #f1f5f9 !important;
+}
+
+.light-mode .bg-slate-800 {
+  background-color: #e2e8f0 !important;
+}
+
+.light-mode .border-border,
+.light-mode .border-slate-800,
+.light-mode .border-slate-700 {
+  border-color: #cbd5e1 !important;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-hover);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border);
+}
+
+/* React Flow styling custom overrides */
+.react-flow__background {
+  background-color: var(--background) !important;
+}
+
+.react-flow__node {
+  border-radius: 0.75rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.react-flow__node.selected > div {
+  ring-width: 2px;
+  --tw-ring-color: var(--brand-accent);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.45);
+}
+
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background: var(--brand-accent);
+  border: 2px solid var(--surface);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.react-flow__handle:hover {
+  width: 14px;
+  height: 14px;
+  filter: brightness(1.2);
+}
+
+.react-flow__edge-path {
+  stroke: var(--brand-accent);
+  stroke-width: 2px;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #818cf8;
+  stroke-width: 3px;
+}
+
+.react-flow__controls {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--surface) !important;
+}
+
+.react-flow__controls-button {
+  background: var(--surface) !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--foreground) !important;
+  fill: var(--foreground) !important;
+}
+
+.react-flow__controls-button:hover {
+  background: var(--surface-hover) !important;
+}
+
+.react-flow__minimap {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0.75rem;
+}
+
+/* Glassmorphic Utilities */
+.glass-panel {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.glass-card {
+  background: var(--surface);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-dropdown {
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+/* Animated gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #06b6d4 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
