@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAuthStore } from '../store/authStore';
 import { Zap, Lock, Mail, ArrowRight, Loader2, Sparkles, ShieldAlert } from 'lucide-react';
 
-export default function LoginPage() {
+function LoginPage() {
   const router = useRouter();
   const { login, isLoading, error } = useAuthStore();
 
@@ -153,3 +154,5 @@ export default function LoginPage() {
     </div>
   );
 }
+
+export default dynamic(() => Promise.resolve(LoginPage), { ssr: false });

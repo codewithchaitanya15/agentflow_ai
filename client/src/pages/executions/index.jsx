@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 import AppShell from '../../components/AppShell/AppShell';
@@ -18,7 +19,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-export default function ExecutionsListPage() {
+function ExecutionsListPage() {
   const [executions, setExecutions] = useState([]);
   const [statusFilter, setStatusFilter] = useState('all');
   const [isLoading, setIsLoading] = useState(true);
@@ -180,3 +181,5 @@ export default function ExecutionsListPage() {
     </ProtectedRoute>
   );
 }
+
+export default dynamic(() => Promise.resolve(ExecutionsListPage), { ssr: false });

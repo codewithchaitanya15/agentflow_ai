@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
@@ -21,7 +22,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 
-export default function WorkflowsListPage() {
+function WorkflowsListPage() {
   const router = useRouter();
   const [workflows, setWorkflows] = useState([]);
   const [search, setSearch] = useState('');
@@ -287,3 +288,5 @@ export default function WorkflowsListPage() {
     </ProtectedRoute>
   );
 }
+
+export default dynamic(() => Promise.resolve(WorkflowsListPage), { ssr: false });

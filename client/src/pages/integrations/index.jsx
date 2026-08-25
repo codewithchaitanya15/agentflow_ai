@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 import AppShell from '../../components/AppShell/AppShell';
@@ -72,7 +73,7 @@ const PROVIDER_METADATA = {
   }
 };
 
-export default function IntegrationsPage() {
+function IntegrationsPage() {
   const router = useRouter();
   const [integrations, setIntegrations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -385,3 +386,5 @@ export default function IntegrationsPage() {
     </ProtectedRoute>
   );
 }
+
+export default dynamic(() => Promise.resolve(IntegrationsPage), { ssr: false });

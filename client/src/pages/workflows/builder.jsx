@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 import AppShell from '../../components/AppShell/AppShell';
@@ -19,7 +20,7 @@ import {
   Layers
 } from 'lucide-react';
 
-export default function WorkflowBuilderPage() {
+function WorkflowBuilderPage() {
   const router = useRouter();
   const {
     currentWorkflow,
@@ -193,3 +194,5 @@ export default function WorkflowBuilderPage() {
     </ProtectedRoute>
   );
 }
+
+export default dynamic(() => Promise.resolve(WorkflowBuilderPage), { ssr: false });

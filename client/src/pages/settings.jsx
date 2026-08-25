@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 import AppShell from '../components/AppShell/AppShell';
 import { useAuthStore } from '../store/authStore';
@@ -18,7 +19,7 @@ import {
   Palette
 } from 'lucide-react';
 
-export default function SettingsPage() {
+function SettingsPage() {
   const { user, logout } = useAuthStore();
   const { theme, setTheme } = useThemeStore();
   const [notificationMuted, setNotificationMuted] = useState(false);
@@ -231,3 +232,5 @@ export default function SettingsPage() {
     </ProtectedRoute>
   );
 }
+
+export default dynamic(() => Promise.resolve(SettingsPage), { ssr: false });

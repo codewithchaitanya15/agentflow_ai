@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 import AppShell from '../components/AppShell/AppShell';
@@ -20,7 +21,7 @@ import {
   AlertCircle
 } from 'lucide-react';
 
-export default function DashboardPage() {
+function DashboardPage() {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -236,3 +237,5 @@ export default function DashboardPage() {
     </ProtectedRoute>
   );
 }
+
+export default dynamic(() => Promise.resolve(DashboardPage), { ssr: false });
