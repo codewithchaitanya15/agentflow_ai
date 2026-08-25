@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
@@ -24,7 +25,7 @@ import {
   ExternalLink
 } from 'lucide-react';
 
-export default function ExecutionDetailPage() {
+function ExecutionDetailPage() {
   const router = useRouter();
   const { id } = router.query;
 
@@ -352,3 +353,5 @@ export default function ExecutionDetailPage() {
     </ProtectedRoute>
   );
 }
+
+export default dynamic(() => Promise.resolve(ExecutionDetailPage), { ssr: false });
