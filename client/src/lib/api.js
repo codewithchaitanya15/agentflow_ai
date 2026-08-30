@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api',
+  baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://agentflow-ai-bet2.onrender.com/api',
   timeout: 30000,
   headers: {
     'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ api.interceptors.response.use(
   (error) => {
     let errorMessage = error.message || 'An error occurred while connecting to the server';
     if (!error.response && error.code === 'ERR_NETWORK') {
-      errorMessage = 'Unable to reach backend API at ' + (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api') + '. Please ensure the backend server is running via "npm run dev" inside the server directory.';
+      errorMessage = 'Unable to reach backend API at ' + (process.env.NEXT_PUBLIC_API_URL || 'https://agentflow-ai-bet2.onrender.com/api') + '. Please ensure the backend server is running and accessible.';
     }
 
     const errorResponse = error.response?.data?.error || {

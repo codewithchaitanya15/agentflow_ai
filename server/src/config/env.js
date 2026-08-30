@@ -21,12 +21,12 @@ module.exports = {
   GEMINI_MODEL: process.env.GEMINI_MODEL || 'gemini-1.5-flash',
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID || '',
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET || '',
-  GOOGLE_REDIRECT_URI: process.env.GOOGLE_REDIRECT_URI || 'http://localhost:5000/api/integrations/oauth/google/callback',
+  GOOGLE_REDIRECT_URI: process.env.GOOGLE_REDIRECT_URI || 'https://agentflow-ai-bet2.onrender.com/api/integrations/oauth/google/callback',
   SLACK_CLIENT_ID: process.env.SLACK_CLIENT_ID || '',
   SLACK_CLIENT_SECRET: process.env.SLACK_CLIENT_SECRET || '',
-  SLACK_REDIRECT_URI: process.env.SLACK_REDIRECT_URI || 'http://localhost:5000/api/integrations/oauth/slack/callback',
+  SLACK_REDIRECT_URI: process.env.SLACK_REDIRECT_URI || 'https://agentflow-ai-bet2.onrender.com/api/integrations/oauth/slack/callback',
   DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID || '',
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET || '',
   DISCORD_BOT_TOKEN: process.env.DISCORD_BOT_TOKEN || '',
-  DISCORD_REDIRECT_URI: process.env.DISCORD_REDIRECT_URI || 'http://localhost:5000/api/integrations/oauth/discord/callback'
+  DISCORD_REDIRECT_URI: process.env.DISCORD_REDIRECT_URI || 'https://agentflow-ai-bet2.onrender.com/api/integrations/oauth/discord/callback'
 };

@@ -6,7 +6,7 @@ export const getSocket = () => {
   if (typeof window === 'undefined') return null;
 
   if (!socket) {
-    const socketUrl = process.env.NEXT_PUBLIC_SOCKET_URL || 'http://localhost:5000';
+    const socketUrl = process.env.NEXT_PUBLIC_SOCKET_URL || 'https://agentflow-ai-bet2.onrender.com';
     socket = io(socketUrl, {
       autoConnect: true,
       reconnection: true,

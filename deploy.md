@@ -84,7 +84,8 @@ Prerequisites
 
   d) Set environment variables in the Vercel project Settings → Environment Variables:
 
-  - `NEXT_PUBLIC_API_URL` — e.g., `https://your-backend.onrender.com/api`
+  - `NEXT_PUBLIC_API_URL` — `https://agentflow-ai-bet2.onrender.com/api`
+  - `NEXT_PUBLIC_SOCKET_URL` — `https://agentflow-ai-bet2.onrender.com`
   - Any other client-facing variables (only prefixed with `NEXT_PUBLIC_` will be exposed to client-side code)
 
   e) Deploy and check the Vercel deployment URL.
@@ -93,7 +94,7 @@ Prerequisites
 
   - For each OAuth provider (Google, Slack, Discord), update the app's redirect URI to point at your production backend callback endpoint:
 
-    `https://<your-backend>.onrender.com/api/integrations/oauth/<provider>/callback`
+    `https://agentflow-ai-bet2.onrender.com/api/integrations/oauth/<provider>/callback`
 
   - Also ensure any frontend OAuth redirects (if applicable) point to your Vercel domain.
 
